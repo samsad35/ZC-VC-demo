@@ -649,7 +649,7 @@
     border: 1px solid #1e293b;
     border-radius: 16px;
     padding: 1.75rem;
-    margin-bottom: 3.5rem;
+    margin: 3.5rem 0 2.5rem;
     color: #f8fafc;
     box-shadow: 0 20px 45px -15px rgba(2, 132, 199, 0.2);
     position: relative;
@@ -772,7 +772,7 @@
     background: linear-gradient(135deg, #0284c7, #2563eb);
     color: #ffffff;
     border: none;
-    padding: 0.8rem 1.25rem;
+    padding: 0.85rem 1.25rem;
     border-radius: 10px;
     font-size: 0.95rem;
     font-weight: 700;
@@ -887,12 +887,6 @@
     border-color: #0284c7;
 }
 
-.preset-chip.active {
-    background: rgba(2, 132, 199, 0.25);
-    color: #38bdf8;
-    border-color: #0284c7;
-}
-
 .spectrum-strip {
     display: flex;
     align-items: flex-end;
@@ -909,7 +903,7 @@
     background: #0284c7;
     height: 10%;
     border-radius: 1px;
-    transition: height 0.05s ease;
+    transition: height 0.06s ease;
 }
 
     </style>
@@ -934,95 +928,15 @@
                 <svg style="width: 14px; height: 14px; fill: currentColor; margin-right: 2px;" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 Code (GitHub)
             </a>
-            <a href="#interactive-compass" class="nav-link-btn" style="background: linear-gradient(135deg, #0284c7, #4f46e5); color: #ffffff; border-color: transparent; font-weight: 700;">🧭 Interactive Voice Compass</a>
             <a href="#benchmark" class="nav-link-btn">🎧 1. Voice Conversion Benchmark (9 Pairs)</a>
             <a href="#neutral-voice" class="nav-link-btn">⚖️ 2. Neutral Voice Conversion</a>
             <a href="#results-table" class="nav-link-btn">📊 3. Unified Objective Results (N=200)</a>
+            <a href="#interactive-compass" class="nav-link-btn" style="background: linear-gradient(135deg, #0284c7, #4f46e5); color: #ffffff; border-color: transparent; font-weight: 700;">🧭 Interactive Voice Compass</a>
             <a href="#code" class="nav-link-btn">💻 4. Code &amp; Quickstart</a>
         </div>
     </header>
 
     <div class="container">
-
-        
-        <!-- ========================================================================= -->
-        <!-- INTERACTIVE SHOWCASE: VOICE COMPASS & REAL-TIME POLYPHONIC GALAXY        -->
-        <!-- ========================================================================= -->
-        <div id="interactive-compass" class="compass-card">
-            <div class="compass-header">
-                <span class="compass-badge">✨ Real-Time Continuous Morphing</span>
-                <h2>🧭 Interactive Voice Compass (2D Wasserstein Mixture)</h2>
-                <p>
-                    Explore continuous speaker space in real-time. Drag the glowing orb across the 2D constellation to continuously morph the voice between speakers along optimal transport geodesics.
-                </p>
-                <div class="compass-transcript">
-                    <strong>Spoken Utterance:</strong> &ldquo;He wore blue silk stockings, blue knee pants with gold buckles, a blue ruffled waist, and a jacket of bright blue braided with gold.&rdquo;
-                </div>
-            </div>
-
-            <div class="compass-body">
-                <div class="canvas-container" id="canvasContainer">
-                    <canvas id="compassCanvas"></canvas>
-                    <div class="canvas-hint">👆 Click or drag the luminous orb to navigate the speaker space</div>
-                </div>
-
-                <div class="compass-sidebar">
-                    <button class="galaxy-main-btn" id="galaxyBtn" onclick="toggleGalaxyPlayback()">
-                        <svg id="galaxyPlayIcon" style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        <svg id="galaxyPauseIcon" style="width: 16px; height: 16px; fill: currentColor; display: none;" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                        <span id="galaxyBtnText">▶ Start Interactive Galaxy</span>
-                    </button>
-
-                    <div class="galaxy-gauges">
-                        <div class="gauge-row">
-                            <div class="gauge-header">
-                                <span class="gauge-name"><span class="gauge-dot" style="background:#a855f7;"></span> Source (Female 1284)</span>
-                                <span class="gauge-pct" id="pct_source">25%</span>
-                            </div>
-                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_source" style="background:#a855f7; width:25%;"></div></div>
-                        </div>
-
-                        <div class="gauge-row">
-                            <div class="gauge-header">
-                                <span class="gauge-name"><span class="gauge-dot" style="background:#38bdf8;"></span> Target Male (1089)</span>
-                                <span class="gauge-pct" id="pct_male">25%</span>
-                            </div>
-                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_male" style="background:#38bdf8; width:25%;"></div></div>
-                        </div>
-
-                        <div class="gauge-row">
-                            <div class="gauge-header">
-                                <span class="gauge-name"><span class="gauge-dot" style="background:#f59e0b;"></span> Target Female (121)</span>
-                                <span class="gauge-pct" id="pct_female">25%</span>
-                            </div>
-                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_female" style="background:#f59e0b; width:25%;"></div></div>
-                        </div>
-
-                        <div class="gauge-row">
-                            <div class="gauge-header">
-                                <span class="gauge-name"><span class="gauge-dot" style="background:#10b981;"></span> Neutral Voice (160 Hz)</span>
-                                <span class="gauge-pct" id="pct_neutral">25%</span>
-                            </div>
-                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_neutral" style="background:#10b981; width:25%;"></div></div>
-                        </div>
-                    </div>
-
-                    <div class="spectrum-strip" id="spectrumStrip"></div>
-
-                    <div class="presets-box">
-                        <div class="presets-label">Quick Jump Presets:</div>
-                        <div class="presets-grid">
-                            <button class="preset-chip" onclick="jumpToPole('source')">Source (F)</button>
-                            <button class="preset-chip" onclick="jumpToPole('male')">Target Male</button>
-                            <button class="preset-chip" onclick="jumpToPole('female')">Target Female</button>
-                            <button class="preset-chip" onclick="jumpToPole('neutral')">Neutral Voice</button>
-                            <button class="preset-chip" style="grid-column: span 2;" onclick="jumpToPole('center')">⚖️ Equi-Barycenter</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <!-- ========================================================================= -->
         <!-- SECTION 1: BENCHMARK VOICE CONVERSION (9 CURATED PAIRS)                  -->
@@ -3474,6 +3388,92 @@
             </table>
         </div>
 
+        
+        <!-- ========================================================================= -->
+        <!-- INTERACTIVE SHOWCASE: VOICE COMPASS & REAL-TIME POLYPHONIC GALAXY        -->
+        <!-- ========================================================================= -->
+        <div id="interactive-compass" class="compass-card">
+            <div class="compass-header">
+                <span class="compass-badge">✨ Real-Time Continuous Morphing</span>
+                <h2>🧭 Interactive Voice Compass (2D Wasserstein Mixture)</h2>
+                <p>
+                    Explore continuous speaker space in real-time. Drag the glowing orb across the 2D constellation to continuously morph the voice between speakers along optimal transport geodesics.
+                </p>
+                <div class="compass-transcript">
+                    <strong>Spoken Utterance:</strong> &ldquo;He wore blue silk stockings, blue knee pants with gold buckles, a blue ruffled waist, and a jacket of bright blue braided with gold.&rdquo;
+                </div>
+            </div>
+
+            <!-- Preloaded Audio Streams for Rock-Solid Instant Multi-Track Playback -->
+            <audio id="galaxy_audio_0" preload="auto" loop src="pair1_1284_to_1089/source.wav"></audio>
+            <audio id="galaxy_audio_1" preload="auto" loop src="pair1_1284_to_1089/converted_boosted_lwt.wav"></audio>
+            <audio id="galaxy_audio_2" preload="auto" loop src="pair1_1284_to_1089/converted_target_female_121.wav"></audio>
+            <audio id="galaxy_audio_3" preload="auto" loop src="pure_content/sample1_1284_female/pure_content_balanced_40spk.wav"></audio>
+
+            <div class="compass-body">
+                <div class="canvas-container" id="canvasContainer">
+                    <canvas id="compassCanvas"></canvas>
+                    <div class="canvas-hint">👆 Click or drag the luminous orb to navigate the speaker space</div>
+                </div>
+
+                <div class="compass-sidebar">
+                    <button class="galaxy-main-btn" id="galaxyBtn" onclick="toggleGalaxyPlayback()">
+                        <svg id="galaxyPlayIcon" style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg id="galaxyPauseIcon" style="width: 16px; height: 16px; fill: currentColor; display: none;" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        <span id="galaxyBtnText">▶ Start Interactive Galaxy</span>
+                    </button>
+
+                    <div class="galaxy-gauges">
+                        <div class="gauge-row">
+                            <div class="gauge-header">
+                                <span class="gauge-name"><span class="gauge-dot" style="background:#a855f7;"></span> Source (Female 1284)</span>
+                                <span class="gauge-pct" id="pct_source">25%</span>
+                            </div>
+                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_source" style="background:#a855f7; width:25%;"></div></div>
+                        </div>
+
+                        <div class="gauge-row">
+                            <div class="gauge-header">
+                                <span class="gauge-name"><span class="gauge-dot" style="background:#38bdf8;"></span> Target Male (1089)</span>
+                                <span class="gauge-pct" id="pct_male">25%</span>
+                            </div>
+                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_male" style="background:#38bdf8; width:25%;"></div></div>
+                        </div>
+
+                        <div class="gauge-row">
+                            <div class="gauge-header">
+                                <span class="gauge-name"><span class="gauge-dot" style="background:#f59e0b;"></span> Target Female (121)</span>
+                                <span class="gauge-pct" id="pct_female">25%</span>
+                            </div>
+                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_female" style="background:#f59e0b; width:25%;"></div></div>
+                        </div>
+
+                        <div class="gauge-row">
+                            <div class="gauge-header">
+                                <span class="gauge-name"><span class="gauge-dot" style="background:#10b981;"></span> Neutral Voice (160 Hz)</span>
+                                <span class="gauge-pct" id="pct_neutral">25%</span>
+                            </div>
+                            <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_neutral" style="background:#10b981; width:25%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="spectrum-strip" id="spectrumStrip"></div>
+
+                    <div class="presets-box">
+                        <div class="presets-label">Quick Jump Presets:</div>
+                        <div class="presets-grid">
+                            <button class="preset-chip" onclick="jumpToPole('source')">Source (F)</button>
+                            <button class="preset-chip" onclick="jumpToPole('male')">Target Male</button>
+                            <button class="preset-chip" onclick="jumpToPole('female')">Target Female</button>
+                            <button class="preset-chip" onclick="jumpToPole('neutral')">Neutral Voice</button>
+                            <button class="preset-chip" style="grid-column: span 2;" onclick="jumpToPole('center')">⚖️ Equi-Barycenter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- ========================================================================= -->
         <!-- SECTION 4: CODE & QUICKSTART                                            -->
         <!-- ========================================================================= -->
@@ -3571,17 +3571,8 @@ converter.<span class="fn">extract_pure_content</span>(
                 }
             }
 
-            if (typeof galaxyAudioCtx !== 'undefined' && galaxyAudioCtx && galaxyAudioCtx.state === 'running') {
-                galaxyAudioCtx.suspend();
-                isGalaxyPlaying = false;
-                const gbtn = document.getElementById('galaxyBtn');
-                if (gbtn) gbtn.classList.remove('playing');
-                const gPlayIcon = document.getElementById('galaxyPlayIcon');
-                const gPauseIcon = document.getElementById('galaxyPauseIcon');
-                const gBtnText = document.getElementById('galaxyBtnText');
-                if (gPlayIcon) gPlayIcon.style.display = 'block';
-                if (gPauseIcon) gPauseIcon.style.display = 'none';
-                if (gBtnText) gBtnText.textContent = '▶ Resume Voice Compass';
+            if (typeof stopAllGalaxyAudio === 'function') {
+                stopAllGalaxyAudio();
             }
 
             if (audio.paused) {
@@ -3685,7 +3676,7 @@ converter.<span class="fn">extract_pure_content</span>(
 
         
 // =========================================================================
-// INTERACTIVE VOICE COMPASS GALAXY LOGIC
+// INTERACTIVE VOICE COMPASS GALAXY LOGIC (Rock-Solid Multi-Track Audio)
 // =========================================================================
 const compassCanvas = document.getElementById('compassCanvas');
 const compassCtx = compassCanvas ? compassCanvas.getContext('2d') : null;
@@ -3697,14 +3688,36 @@ let cDpr = window.devicePixelRatio || 1;
 
 // Poles in normalized space [-1, 1]
 const cPoles = [
-    { id: 'source', name: 'Source (Female 1284)', short: 'Source (F)', x: 0, y: -0.74, color: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)', url: 'pair1_1284_to_1089/source.wav' },
-    { id: 'male', name: 'Target Male (1089)', short: 'Target Male', x: 0.74, y: 0, color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.4)', url: 'pair1_1284_to_1089/converted_boosted_lwt.wav' },
-    { id: 'female', name: 'Target Female (121)', short: 'Target Female', x: -0.74, y: 0, color: '#f59e0b', glow: 'rgba(245, 158, 11, 0.4)', url: 'pair1_1284_to_1089/converted_target_female_121.wav' },
-    { id: 'neutral', name: 'Neutral Voice (160 Hz)', short: 'Neutral Voice', x: 0, y: 0.74, color: '#10b981', glow: 'rgba(16, 185, 129, 0.4)', url: 'pure_content/sample1_1284_female/pure_content_balanced_40spk.wav' }
+    { id: 'source', name: 'Source (Female 1284)', short: 'Source (F)', x: 0, y: -0.74, color: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)' },
+    { id: 'male', name: 'Target Male (1089)', short: 'Target Male', x: 0.74, y: 0, color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.4)' },
+    { id: 'female', name: 'Target Female (121)', short: 'Target Female', x: -0.74, y: 0, color: '#f59e0b', glow: 'rgba(245, 158, 11, 0.4)' },
+    { id: 'neutral', name: 'Neutral Voice (160 Hz)', short: 'Neutral Voice', x: 0, y: 0.74, color: '#10b981', glow: 'rgba(16, 185, 129, 0.4)' }
 ];
 
 let cOrb = { x: 0, y: 0, targetX: 0, targetY: 0, isDragging: false };
 let cWeights = [0.25, 0.25, 0.25, 0.25];
+let isGalaxyPlaying = false;
+
+// Audio Elements
+const galaxyAudios = [
+    document.getElementById('galaxy_audio_0'),
+    document.getElementById('galaxy_audio_1'),
+    document.getElementById('galaxy_audio_2'),
+    document.getElementById('galaxy_audio_3')
+];
+
+// Synchronize audio positions
+if (galaxyAudios[0]) {
+    galaxyAudios[0].addEventListener('timeupdate', () => {
+        if (!isGalaxyPlaying) return;
+        const cur = galaxyAudios[0].currentTime;
+        for (let i = 1; i < galaxyAudios.length; i++) {
+            if (galaxyAudios[i] && Math.abs(galaxyAudios[i].currentTime - cur) > 0.05) {
+                galaxyAudios[i].currentTime = cur;
+            }
+        }
+    });
+}
 
 const cStars = [];
 for (let i = 0; i < 45; i++) {
@@ -3717,15 +3730,6 @@ for (let i = 0; i < 45; i++) {
     });
 }
 
-// Web Audio API State
-let galaxyAudioCtx = null;
-let galaxyBuffers = [null, null, null, null];
-let galaxySources = [null, null, null, null];
-let galaxyGains = [null, null, null, null];
-let galaxyAnalyser = null;
-let isGalaxyPlaying = false;
-let galaxyFreqData = new Uint8Array(32);
-
 function resizeCompassCanvas() {
     if (!compassContainer || !compassCanvas) return;
     const rect = compassContainer.getBoundingClientRect();
@@ -3733,7 +3737,7 @@ function resizeCompassCanvas() {
     cHeight = rect.height;
     compassCanvas.width = cWidth * cDpr;
     compassCanvas.height = cHeight * cDpr;
-    compassCtx.scale(cDpr, cDpr);
+    if (compassCtx) compassCtx.scale(cDpr, cDpr);
 }
 window.addEventListener('resize', resizeCompassCanvas);
 resizeCompassCanvas();
@@ -3778,13 +3782,12 @@ function updateCompassWeights() {
         if (txt) txt.textContent = pct + '%';
     }
 
-    if (galaxyAudioCtx && isGalaxyPlaying) {
-        for (let i = 0; i < galaxyGains.length; i++) {
-            if (galaxyGains[i]) {
-                galaxyGains[i].gain.setTargetAtTime(cWeights[i], galaxyAudioCtx.currentTime, 0.025);
-            }
+    // Direct synchronous native volume updates
+    galaxyAudios.forEach((a, i) => {
+        if (a) {
+            a.volume = Math.max(0, Math.min(1, cWeights[i]));
         }
-    }
+    });
 }
 
 function handleCompassPointerDown(e) {
@@ -3863,13 +3866,7 @@ function renderCompassGalaxy() {
     if (!compassCtx) return;
     compassCtx.clearRect(0, 0, cWidth, cHeight);
 
-    let audioEnergy = 0;
-    if (galaxyAnalyser && isGalaxyPlaying) {
-        galaxyAnalyser.getByteFrequencyData(galaxyFreqData);
-        let sum = 0;
-        for (let i = 0; i < galaxyFreqData.length; i++) sum += galaxyFreqData[i];
-        audioEnergy = sum / (galaxyFreqData.length * 255);
-    }
+    let audioEnergy = isGalaxyPlaying ? (0.35 + Math.sin(cAnimFrame * 0.18) * 0.15 + Math.cos(cAnimFrame * 0.08) * 0.1) : 0;
 
     const center = cToScreen(0, 0);
     const minDim = Math.min(cWidth, cHeight) / 2;
@@ -4010,11 +4007,28 @@ function renderCompassGalaxy() {
 
     // Spectrum bars
     const specContainer = document.getElementById('spectrumStrip');
-    if (specContainer && specContainer.children.length === 16 && isGalaxyPlaying) {
-        for (let i = 0; i < 16; i++) {
-            const val = galaxyFreqData[i] || 10;
-            const h = Math.max(8, Math.min(100, (val / 255) * 100));
-            specContainer.children[i].style.height = h + '%';
+    if (specContainer) {
+        if (specContainer.children.length === 0) {
+            for (let i = 0; i < 16; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'spectrum-col';
+                specContainer.appendChild(bar);
+            }
+        }
+        if (isGalaxyPlaying) {
+            const t = cAnimFrame * 0.15;
+            for (let i = 0; i < 16; i++) {
+                let energy = Math.sin(t + i * 0.6) * 0.3 + 0.5;
+                if (i < 6) energy += cWeights[1] * 0.4;
+                if (i >= 6 && i < 12) energy += (cWeights[0] + cWeights[2]) * 0.4;
+                if (i >= 4 && i < 10) energy += cWeights[3] * 0.3;
+                const h = Math.max(10, Math.min(100, energy * 95));
+                specContainer.children[i].style.height = h + '%';
+            }
+        } else {
+            for (let i = 0; i < 16; i++) {
+                specContainer.children[i].style.height = '10%';
+            }
         }
     }
 
@@ -4022,59 +4036,31 @@ function renderCompassGalaxy() {
 }
 requestAnimationFrame(renderCompassGalaxy);
 
-// Web Audio API
-async function initGalaxyAudio() {
-    if (galaxyAudioCtx) return;
-    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-    galaxyAudioCtx = new AudioCtxClass();
-
-    galaxyAnalyser = galaxyAudioCtx.createAnalyser();
-    galaxyAnalyser.fftSize = 64;
-    galaxyAnalyser.connect(galaxyAudioCtx.destination);
-
-    const specContainer = document.getElementById('spectrumStrip');
-    if (specContainer && specContainer.children.length === 0) {
-        for (let i = 0; i < 16; i++) {
-            const bar = document.createElement('div');
-            bar.className = 'spectrum-col';
-            specContainer.appendChild(bar);
+function stopAllGalaxyAudio() {
+    galaxyAudios.forEach(a => {
+        if (a) {
+            a.pause();
+            a.currentTime = 0;
         }
-    }
-
+    });
+    isGalaxyPlaying = false;
+    const btn = document.getElementById('galaxyBtn');
+    const playIcon = document.getElementById('galaxyPlayIcon');
+    const pauseIcon = document.getElementById('galaxyPauseIcon');
     const btnText = document.getElementById('galaxyBtnText');
-    if (btnText) btnText.textContent = '⏳ Loading audio streams...';
-
-    const promises = cPoles.map(p => fetch(p.url).then(r => r.arrayBuffer()).then(ab => galaxyAudioCtx.decodeAudioData(ab)));
-    galaxyBuffers = await Promise.all(promises);
-
-    startGalaxySources();
+    if (btn) btn.classList.remove('playing');
+    if (playIcon) playIcon.style.display = 'block';
+    if (pauseIcon) pauseIcon.style.display = 'none';
+    if (btnText) btnText.textContent = '▶ Start Interactive Galaxy';
 }
 
-function startGalaxySources() {
-    for (let i = 0; i < galaxyBuffers.length; i++) {
-        const src = galaxyAudioCtx.createBufferSource();
-        src.buffer = galaxyBuffers[i];
-        src.loop = true;
-
-        const gain = galaxyAudioCtx.createGain();
-        gain.gain.setValueAtTime(cWeights[i], galaxyAudioCtx.currentTime);
-
-        src.connect(gain);
-        gain.connect(galaxyAnalyser);
-
-        galaxySources[i] = src;
-        galaxyGains[i] = gain;
-
-        src.start(0);
-    }
-}
-
-async function toggleGalaxyPlayback() {
+function toggleGalaxyPlayback() {
     const btn = document.getElementById('galaxyBtn');
     const playIcon = document.getElementById('galaxyPlayIcon');
     const pauseIcon = document.getElementById('galaxyPauseIcon');
     const btnText = document.getElementById('galaxyBtnText');
 
+    // Pause any other standard players on the page first
     if (typeof currentlyPlayingId !== 'undefined' && currentlyPlayingId) {
         const prevAudio = document.getElementById('audio_' + currentlyPlayingId);
         const prevUnit = document.getElementById('unit_' + currentlyPlayingId);
@@ -4089,35 +4075,30 @@ async function toggleGalaxyPlayback() {
         currentlyPlayingId = null;
     }
 
-    if (!galaxyAudioCtx) {
-        try {
-            await initGalaxyAudio();
-            isGalaxyPlaying = true;
-            if (btn) btn.classList.add('playing');
-            if (playIcon) playIcon.style.display = 'none';
-            if (pauseIcon) pauseIcon.style.display = 'block';
-            if (btnText) btnText.textContent = '⏸ Pause Voice Compass';
-        } catch (err) {
-            console.error("Failed to load galaxy audio:", err);
-            if (btnText) btnText.textContent = '▶ Start Interactive Galaxy';
-        }
-        return;
-    }
-
-    if (galaxyAudioCtx.state === 'suspended') {
-        await galaxyAudioCtx.resume();
+    if (isGalaxyPlaying) {
+        galaxyAudios.forEach(a => { if (a) a.pause(); });
+        isGalaxyPlaying = false;
+        if (btn) btn.classList.remove('playing');
+        if (playIcon) playIcon.style.display = 'block';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (btnText) btnText.textContent = '▶ Start Interactive Galaxy';
+    } else {
+        const masterTime = galaxyAudios[0] ? galaxyAudios[0].currentTime : 0;
+        galaxyAudios.forEach((a, i) => {
+            if (a) {
+                a.volume = Math.max(0, Math.min(1, cWeights[i]));
+                a.currentTime = masterTime;
+                const p = a.play();
+                if (p !== undefined) {
+                    p.catch(err => console.warn("Audio play error:", err));
+                }
+            }
+        });
         isGalaxyPlaying = true;
         if (btn) btn.classList.add('playing');
         if (playIcon) playIcon.style.display = 'none';
         if (pauseIcon) pauseIcon.style.display = 'block';
         if (btnText) btnText.textContent = '⏸ Pause Voice Compass';
-    } else if (galaxyAudioCtx.state === 'running') {
-        await galaxyAudioCtx.suspend();
-        isGalaxyPlaying = false;
-        if (btn) btn.classList.remove('playing');
-        if (playIcon) playIcon.style.display = 'block';
-        if (pauseIcon) pauseIcon.style.display = 'none';
-        if (btnText) btnText.textContent = '▶ Resume Voice Compass';
     }
 }
 
