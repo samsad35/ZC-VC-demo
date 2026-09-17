@@ -11,12 +11,12 @@ Official demonstration website for the paper:
 ## 🌐 Live Online Demo (GitHub Pages)
 
 You can host this website directly using **GitHub Pages**:
-1. Push this repository to GitHub (e.g. `https://github.com/<your-username>/boosted-lwt-demo`).
+1. Repository: `https://github.com/samsad35/ZC-VC-demo`
 2. Go to repository **Settings** &rarr; **Pages**.
-3. Under **Build and deployment** &rarr; **Branch**, select `main` (or `master`) and folder `/ (root)`.
+3. Under **Build and deployment** &rarr; **Branch**, select `main` and folder `/ (root)`.
 4. Click **Save**. Within a few minutes, your site will be live at:
    ```
-   https://<your-username>.github.io/boosted-lwt-demo/
+   https://samsad35.github.io/ZC-VC-demo/
    ```
 
 ---
@@ -53,7 +53,7 @@ You can host this website directly using **GitHub Pages**:
 ## 💻 Code Repository
 
 The complete Python package, CLI tools, and reproducible evaluation code can be found in the main repository:  
-🔗 **[Local Transport Mixtures Code Repository](https://github.com/<your-username>/boosted-lwt)**
+🔗 **[Local Transport Mixtures Code Repository](https://github.com/samsad35/lwt-zcvc-code)**
 
 ---
 
