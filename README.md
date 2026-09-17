@@ -1,7 +1,7 @@
 # Boosted Local Wasserstein Transport (Boosted LWT) — Audio Demonstrations
 
 Official demonstration website for the paper:  
-**"Boosted Local Wasserstein Transport: Zero-Shot Voice Conversion via Closed-Form Optimal Transport and Analytical Speech Disentanglement in Self-Supervised Spaces"** *(ICASSP 2026 Submission)*.
+**"Boosted Local Wasserstein Transport: Zero-Shot Voice Conversion via Closed-Form Optimal Transport and Analytical Speech Disentanglement in Self-Supervised Spaces"** *(Under Review)*.
 
 ---
 
