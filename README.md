@@ -3,7 +3,7 @@
 Official demonstration website for the paper:  
 **"Local Transport Mixtures for Zero-Shot Voice Conversion in SSL Spaces"** *(Under Review)*.
 
-**Authors:** Samir Sadok$^{\star}$, Xavier Alameda-Pineda$^{\star}$ ($^{\star}$*Equal contribution*)  
+**Authors:** Samir Sadok, Xavier Alameda-Pineda  
 *Inria, Univ. Grenoble Alpes, CNRS, Grenoble INP, LJK, France*
 
 ---
