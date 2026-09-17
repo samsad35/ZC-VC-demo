@@ -29,7 +29,7 @@ You can host this website directly using **GitHub Pages**:
    - Side-by-side comparison of **Proposed LWT ($\alpha=1.5$)** against:
      - Standard LWT ($\alpha=1.0$)
      - LinearVC (Interspeech 2025)
-     - kNN-VC ($k=4$, IEEE TASLP 2023)
+     - kNN-VC ($k=4$, Interspeech 2023)
      - Classic Global WCT
    - Dynamic vector SVG waveform players with time seeking and real-time playback progress.
 
