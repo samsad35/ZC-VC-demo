@@ -107,10 +107,60 @@
             margin-top: 0.15rem;
         }
 
+        /* Sticky Modern Glassmorphism Navbar */
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px -5px rgba(15, 23, 42, 0.07);
+            padding: 0.55rem 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+
+        .brand-badge {
+            background: #0f172a;
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-title {
+            color: var(--text-main);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
         .nav-links {
             display: flex;
-            justify-content: center;
-            gap: 0.65rem;
+            align-items: center;
+            gap: 0.4rem;
             flex-wrap: wrap;
         }
 
@@ -118,21 +168,48 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            background: var(--surface-sub);
-            color: var(--text-sub);
-            border: 1px solid var(--border-subtle);
-            padding: 0.4rem 0.95rem;
+            background: #f8fafc;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+            padding: 0.35rem 0.75rem;
             border-radius: 8px;
-            font-size: 0.82rem;
+            font-size: 0.79rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.15s ease;
+            white-space: nowrap;
         }
 
         .nav-link-btn:hover {
             border-color: var(--primary);
             color: var(--primary);
             background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .nav-link-btn.nav-compass-btn {
+            background: linear-gradient(135deg, #0284c7, #4f46e5);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+        }
+
+        .nav-link-btn.nav-compass-btn:hover {
+            background: linear-gradient(135deg, #0369a1, #4338ca);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.45);
+        }
+
+        .nav-link-btn.nav-github-btn {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        .nav-link-btn.nav-github-btn:hover {
+            background: #1e293b;
+            color: #38bdf8;
+            border-color: #38bdf8;
         }
 
         /* Main Container */
@@ -413,7 +490,12 @@
         }
 
         .comp-row.ref-row {
-            background: #f8fafc;
+            background: #e9eff5;
+            border-left: 3.5px solid #64748b;
+        }
+
+        .comp-row.ref-row:hover {
+            background: #dfe7ef;
         }
 
         .comp-row.proposed {
@@ -438,8 +520,8 @@
         }
 
         .comp-row.ref-row .comp-label {
-            font-weight: 600;
-            color: #1e293b;
+            font-weight: 700;
+            color: #0f172a;
         }
 
         .comp-row.proposed .comp-label {
@@ -463,13 +545,15 @@
         }
 
         .sub-badge.src {
-            background: #e2e8f0;
-            color: #334155;
+            background: #cbd5e1;
+            color: #0f172a;
+            font-weight: 700;
         }
 
         .sub-badge.tgt {
-            background: #e0e7ff;
-            color: #3730a3;
+            background: #c7d2fe;
+            color: #312e81;
+            font-weight: 700;
         }
 
         .comp-player {
@@ -657,7 +741,7 @@
 }
 
 .compass-header {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .compass-badge {
@@ -690,14 +774,49 @@
     line-height: 1.5;
 }
 
+.compass-example-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0 0.65rem;
+    flex-wrap: wrap;
+}
+
+.compass-tab {
+    background: #111827;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.compass-tab:hover {
+    color: #ffffff;
+    border-color: #0284c7;
+    background: #1f293d;
+}
+
+.compass-tab.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: #ffffff;
+    border-color: #0284c7;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
 .compass-transcript {
     background: #0f172a;
     border-left: 3px solid #0284c7;
-    padding: 0.5rem 0.85rem;
+    padding: 0.55rem 0.85rem;
     border-radius: 0 6px 6px 0;
     font-size: 0.82rem;
     color: #cbd5e1;
-    margin-top: 0.85rem;
+    margin-top: 0.6rem;
     font-style: italic;
 }
 
@@ -922,19 +1041,27 @@
         <div class="affiliations">
             <span>Inria, Univ. Grenoble Alpes, CNRS, Grenoble INP, LJK, France</span>
         </div>
-
-        <div class="nav-links">
-            <a href="https://github.com/samsad35/lwt-zcvc-code" target="_blank" class="nav-link-btn" style="background: #0f172a; color: #ffffff; border-color: #0f172a;">
-                <svg style="width: 14px; height: 14px; fill: currentColor; margin-right: 2px;" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                Code (GitHub)
-            </a>
-            <a href="#benchmark" class="nav-link-btn">🎧 1. Voice Conversion Benchmark (9 Pairs)</a>
-            <a href="#neutral-voice" class="nav-link-btn">⚖️ 2. Neutral Voice Conversion</a>
-            <a href="#results-table" class="nav-link-btn">📊 3. Unified Objective Results (N=200)</a>
-            <a href="#interactive-compass" class="nav-link-btn" style="background: linear-gradient(135deg, #0284c7, #4f46e5); color: #ffffff; border-color: transparent; font-weight: 700;">🧭 Interactive Voice Compass</a>
-            <a href="#code" class="nav-link-btn">💻 4. Code &amp; Quickstart</a>
-        </div>
     </header>
+
+    <nav class="sticky-navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" title="Scroll to top">
+                <span class="brand-badge">LWT</span>
+                <span class="brand-title">Zero-Shot VC</span>
+            </a>
+            <div class="nav-links">
+                <a href="#benchmark" class="nav-link-btn">🎧 1. Benchmark</a>
+                <a href="#neutral-voice" class="nav-link-btn">⚖️ 2. Neutral Voice</a>
+                <a href="#results-table" class="nav-link-btn">📊 3. Objective Results</a>
+                <a href="#interactive-compass" class="nav-link-btn nav-compass-btn">🧭 Voice Compass</a>
+                <a href="#code" class="nav-link-btn">💻 Quickstart</a>
+                <a href="https://github.com/samsad35/lwt-zcvc-code" target="_blank" class="nav-link-btn nav-github-btn">
+                    <svg style="width: 14px; height: 14px; fill: currentColor; margin-right: 2px;" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
 
@@ -3399,16 +3526,33 @@
                 <p>
                     Explore continuous speaker space in real-time. Drag the glowing orb across the 2D constellation to continuously morph the voice between speakers along optimal transport geodesics.
                 </p>
-                <div class="compass-transcript">
+
+                <!-- Example Switcher Tabs -->
+                <div class="compass-example-tabs">
+                    <button class="compass-tab active" id="tab_ex1" onclick="switchCompassExample(1)">
+                        <span>👩</span> Example 1: Female Source (1284)
+                    </button>
+                    <button class="compass-tab" id="tab_ex2" onclick="switchCompassExample(2)">
+                        <span>👨</span> Example 2: Male Source (1320)
+                    </button>
+                </div>
+
+                <div class="compass-transcript" id="compassTranscript">
                     <strong>Spoken Utterance:</strong> &ldquo;He wore blue silk stockings, blue knee pants with gold buckles, a blue ruffled waist, and a jacket of bright blue braided with gold.&rdquo;
                 </div>
             </div>
 
-            <!-- Preloaded Audio Streams for Rock-Solid Instant Multi-Track Playback -->
-            <audio id="galaxy_audio_0" preload="auto" loop src="pair1_1284_to_1089/source.wav"></audio>
-            <audio id="galaxy_audio_1" preload="auto" loop src="pair1_1284_to_1089/converted_boosted_lwt.wav"></audio>
-            <audio id="galaxy_audio_2" preload="auto" loop src="pair1_1284_to_1089/converted_target_female_121.wav"></audio>
-            <audio id="galaxy_audio_3" preload="auto" loop src="pure_content/sample1_1284_female/pure_content_balanced_40spk.wav"></audio>
+            <!-- Preloaded Audio Streams: Example 1 (Female Source 1284) -->
+            <audio id="galaxy_audio_ex1_0" preload="auto" loop src="pair1_1284_to_1089/source.wav"></audio>
+            <audio id="galaxy_audio_ex1_1" preload="auto" loop src="pair1_1284_to_1089/converted_boosted_lwt.wav"></audio>
+            <audio id="galaxy_audio_ex1_2" preload="auto" loop src="pair1_1284_to_1089/converted_target_female_121.wav"></audio>
+            <audio id="galaxy_audio_ex1_3" preload="auto" loop src="pure_content/sample1_1284_female/pure_content_balanced_40spk.wav"></audio>
+
+            <!-- Preloaded Audio Streams: Example 2 (Male Source 1320) -->
+            <audio id="galaxy_audio_ex2_0" preload="auto" loop src="pair2_1320_to_121/source.wav"></audio>
+            <audio id="galaxy_audio_ex2_1" preload="auto" loop src="pair2_1320_to_121/converted_target_male_1089.wav"></audio>
+            <audio id="galaxy_audio_ex2_2" preload="auto" loop src="pair2_1320_to_121/converted_boosted_lwt.wav"></audio>
+            <audio id="galaxy_audio_ex2_3" preload="auto" loop src="pure_content/sample2_1320_male/pure_content_balanced_40spk.wav"></audio>
 
             <div class="compass-body">
                 <div class="canvas-container" id="canvasContainer">
@@ -3426,7 +3570,7 @@
                     <div class="galaxy-gauges">
                         <div class="gauge-row">
                             <div class="gauge-header">
-                                <span class="gauge-name"><span class="gauge-dot" style="background:#a855f7;"></span> Source (Female 1284)</span>
+                                <span class="gauge-name"><span class="gauge-dot" style="background:#a855f7;"></span> <span id="gauge_label_source">Source (Female 1284)</span></span>
                                 <span class="gauge-pct" id="pct_source">25%</span>
                             </div>
                             <div class="gauge-bar-bg"><div class="gauge-bar-fill" id="bar_source" style="background:#a855f7; width:25%;"></div></div>
@@ -3462,7 +3606,7 @@
                     <div class="presets-box">
                         <div class="presets-label">Quick Jump Presets:</div>
                         <div class="presets-grid">
-                            <button class="preset-chip" onclick="jumpToPole('source')">Source (F)</button>
+                            <button class="preset-chip" onclick="jumpToPole('source')">Source</button>
                             <button class="preset-chip" onclick="jumpToPole('male')">Target Male</button>
                             <button class="preset-chip" onclick="jumpToPole('female')">Target Female</button>
                             <button class="preset-chip" onclick="jumpToPole('neutral')">Neutral Voice</button>
@@ -3676,7 +3820,7 @@ converter.<span class="fn">extract_pure_content</span>(
 
         
 // =========================================================================
-// INTERACTIVE VOICE COMPASS GALAXY LOGIC (Rock-Solid Multi-Track Audio)
+// INTERACTIVE VOICE COMPASS GALAXY LOGIC (Multi-Example Support)
 // =========================================================================
 const compassCanvas = document.getElementById('compassCanvas');
 const compassCtx = compassCanvas ? compassCanvas.getContext('2d') : null;
@@ -3686,38 +3830,75 @@ let cWidth = 0;
 let cHeight = 0;
 let cDpr = window.devicePixelRatio || 1;
 
-// Poles in normalized space [-1, 1]
-const cPoles = [
-    { id: 'source', name: 'Source (Female 1284)', short: 'Source (F)', x: 0, y: -0.74, color: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)' },
-    { id: 'male', name: 'Target Male (1089)', short: 'Target Male', x: 0.74, y: 0, color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.4)' },
-    { id: 'female', name: 'Target Female (121)', short: 'Target Female', x: -0.74, y: 0, color: '#f59e0b', glow: 'rgba(245, 158, 11, 0.4)' },
-    { id: 'neutral', name: 'Neutral Voice (160 Hz)', short: 'Neutral Voice', x: 0, y: 0.74, color: '#10b981', glow: 'rgba(16, 185, 129, 0.4)' }
-];
+let currentCompassExample = 1;
 
+const compassExamplesData = {
+    1: {
+        sourceName: 'Source (Female 1284)',
+        transcript: 'He wore blue silk stockings, blue knee pants with gold buckles, a blue ruffled waist, and a jacket of bright blue braided with gold.',
+        poles: [
+            { id: 'source', name: 'Source (Female 1284)', short: 'Source', x: 0, y: -0.74, color: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)' },
+            { id: 'male', name: 'Target Male (1089)', short: 'Target Male', x: 0.74, y: 0, color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.4)' },
+            { id: 'female', name: 'Target Female (121)', short: 'Target Female', x: -0.74, y: 0, color: '#f59e0b', glow: 'rgba(245, 158, 11, 0.4)' },
+            { id: 'neutral', name: 'Neutral Voice (160 Hz)', short: 'Neutral Voice', x: 0, y: 0.74, color: '#10b981', glow: 'rgba(16, 185, 129, 0.4)' }
+        ]
+    },
+    2: {
+        sourceName: 'Source (Male 1320)',
+        transcript: 'Since the period of our tale, the active spirit of the country has surrounded it with a belt of rich and thriving settlements, though none but the hunter or the savage is ever known, even now, to penetrate its wild recesses.',
+        poles: [
+            { id: 'source', name: 'Source (Male 1320)', short: 'Source', x: 0, y: -0.74, color: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)' },
+            { id: 'male', name: 'Target Male (1089)', short: 'Target Male', x: 0.74, y: 0, color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.4)' },
+            { id: 'female', name: 'Target Female (121)', short: 'Target Female', x: -0.74, y: 0, color: '#f59e0b', glow: 'rgba(245, 158, 11, 0.4)' },
+            { id: 'neutral', name: 'Neutral Voice (160 Hz)', short: 'Neutral Voice', x: 0, y: 0.74, color: '#10b981', glow: 'rgba(16, 185, 129, 0.4)' }
+        ]
+    }
+};
+
+let cPoles = compassExamplesData[1].poles;
 let cOrb = { x: 0, y: 0, targetX: 0, targetY: 0, isDragging: false };
 let cWeights = [0.25, 0.25, 0.25, 0.25];
 let isGalaxyPlaying = false;
 
-// Audio Elements
-const galaxyAudios = [
-    document.getElementById('galaxy_audio_0'),
-    document.getElementById('galaxy_audio_1'),
-    document.getElementById('galaxy_audio_2'),
-    document.getElementById('galaxy_audio_3')
-];
-
-// Synchronize audio positions
-if (galaxyAudios[0]) {
-    galaxyAudios[0].addEventListener('timeupdate', () => {
-        if (!isGalaxyPlaying) return;
-        const cur = galaxyAudios[0].currentTime;
-        for (let i = 1; i < galaxyAudios.length; i++) {
-            if (galaxyAudios[i] && Math.abs(galaxyAudios[i].currentTime - cur) > 0.05) {
-                galaxyAudios[i].currentTime = cur;
-            }
-        }
-    });
+function getCurrentGalaxyAudios() {
+    const pfx = currentCompassExample === 1 ? 'galaxy_audio_ex1_' : 'galaxy_audio_ex2_';
+    return [
+        document.getElementById(pfx + '0'),
+        document.getElementById(pfx + '1'),
+        document.getElementById(pfx + '2'),
+        document.getElementById(pfx + '3')
+    ];
 }
+
+function getAllGalaxyAudios() {
+    return [
+        document.getElementById('galaxy_audio_ex1_0'),
+        document.getElementById('galaxy_audio_ex1_1'),
+        document.getElementById('galaxy_audio_ex1_2'),
+        document.getElementById('galaxy_audio_ex1_3'),
+        document.getElementById('galaxy_audio_ex2_0'),
+        document.getElementById('galaxy_audio_ex2_1'),
+        document.getElementById('galaxy_audio_ex2_2'),
+        document.getElementById('galaxy_audio_ex2_3')
+    ];
+}
+
+// Time synchronization handlers for both sets
+[1, 2].forEach(ex => {
+    const leader = document.getElementById(`galaxy_audio_ex${ex}_0`);
+    if (leader) {
+        leader.addEventListener('timeupdate', () => {
+            if (!isGalaxyPlaying || currentCompassExample !== ex) return;
+            const cur = leader.currentTime;
+            for (let i = 1; i <= 3; i++) {
+                const sub = document.getElementById(`galaxy_audio_ex${ex}_${i}`);
+                if (sub && Math.abs(sub.currentTime - cur) > 0.05) {
+                    sub.currentTime = cur;
+                }
+            }
+        });
+    }
+});
 
 const cStars = [];
 for (let i = 0; i < 45; i++) {
@@ -3782,12 +3963,54 @@ function updateCompassWeights() {
         if (txt) txt.textContent = pct + '%';
     }
 
-    // Direct synchronous native volume updates
-    galaxyAudios.forEach((a, i) => {
+    const currentAudios = getCurrentGalaxyAudios();
+    currentAudios.forEach((a, i) => {
         if (a) {
             a.volume = Math.max(0, Math.min(1, cWeights[i]));
         }
     });
+}
+
+function switchCompassExample(exNum) {
+    if (currentCompassExample === exNum) return;
+    currentCompassExample = exNum;
+
+    // Update Tab buttons
+    document.querySelectorAll('.compass-tab').forEach(t => t.classList.remove('active'));
+    const activeTab = document.getElementById('tab_ex' + exNum);
+    if (activeTab) activeTab.classList.add('active');
+
+    // Update metadata & labels
+    const data = compassExamplesData[exNum];
+    cPoles = data.poles;
+
+    const transcriptEl = document.getElementById('compassTranscript');
+    if (transcriptEl) {
+        transcriptEl.innerHTML = `<strong>Spoken Utterance:</strong> &ldquo;${data.transcript}&rdquo;`;
+    }
+
+    const gaugeLabelSource = document.getElementById('gauge_label_source');
+    if (gaugeLabelSource) {
+        gaugeLabelSource.textContent = data.sourceName;
+    }
+
+    // Stop inactive audio set
+    getAllGalaxyAudios().forEach(a => { if (a) a.pause(); });
+
+    // If already playing, immediately play new set seamlessly
+    if (isGalaxyPlaying) {
+        const newAudios = getCurrentGalaxyAudios();
+        newAudios.forEach((a, i) => {
+            if (a) {
+                a.volume = Math.max(0, Math.min(1, cWeights[i]));
+                a.currentTime = 0;
+                const p = a.play();
+                if (p !== undefined) p.catch(err => console.warn(err));
+            }
+        });
+    }
+
+    updateCompassWeights();
 }
 
 function handleCompassPointerDown(e) {
@@ -4037,7 +4260,7 @@ function renderCompassGalaxy() {
 requestAnimationFrame(renderCompassGalaxy);
 
 function stopAllGalaxyAudio() {
-    galaxyAudios.forEach(a => {
+    getAllGalaxyAudios().forEach(a => {
         if (a) {
             a.pause();
             a.currentTime = 0;
@@ -4075,16 +4298,18 @@ function toggleGalaxyPlayback() {
         currentlyPlayingId = null;
     }
 
+    const currentAudios = getCurrentGalaxyAudios();
+
     if (isGalaxyPlaying) {
-        galaxyAudios.forEach(a => { if (a) a.pause(); });
+        currentAudios.forEach(a => { if (a) a.pause(); });
         isGalaxyPlaying = false;
         if (btn) btn.classList.remove('playing');
         if (playIcon) playIcon.style.display = 'block';
         if (pauseIcon) pauseIcon.style.display = 'none';
         if (btnText) btnText.textContent = '▶ Start Interactive Galaxy';
     } else {
-        const masterTime = galaxyAudios[0] ? galaxyAudios[0].currentTime : 0;
-        galaxyAudios.forEach((a, i) => {
+        const masterTime = currentAudios[0] ? currentAudios[0].currentTime : 0;
+        currentAudios.forEach((a, i) => {
             if (a) {
                 a.volume = Math.max(0, Math.min(1, cWeights[i]));
                 a.currentTime = masterTime;
